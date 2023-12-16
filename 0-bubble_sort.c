@@ -9,11 +9,14 @@
  */
 void bubble_sort(int *array, size_t size)
 {
-	size_t i, j, k;
+	size_t i, j;
 	int temp;
+	int swapped;
 
 	for (i = 0; i < size - 1; i++)
 	{
+		swapped = 0;
+
 		for (j = 0; j < size - i - 1; j++)
 		{
 			if (array[j] > array[j + 1])
@@ -21,21 +24,19 @@ void bubble_sort(int *array, size_t size)
 				temp = array[j];
 				array[j] = array[j + 1];
 				array[j + 1] = temp;
+				swapped = 1;
 			}
 		}
 
-		for (k = 0; k < size; k++)
+		if (swapped == 0)
+			break;
+
+		for (j = 0; j < size; j++)
 		{
-			printf("%d ", array[k]);
+			printf("%d", array[j]);
+			if (j < size - 1)
+				printf(", ");
 		}
 		printf("\n");
 	}
-}
-
-int my_main(void)
-{
-	int array[] = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
-	size_t size = sizeof(array) / sizeof(array[0]);
-	bubble_sort(array, size);
-	return (0);
 }
