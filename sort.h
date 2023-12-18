@@ -32,6 +32,13 @@ void selection_sort(int *array, size_t size);
 
 void swap_integers(int *a, int *b);
 
+void _swap(int *array, int i, int j, size_t size);
+
+int partition(int *array, int start, int end, size_t size);
+
+void quicksort(int *array, int start, int end, size_t size);
+
+void quick_sort(int *array, size_t size);
 
 
 #endif
